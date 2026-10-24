@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SLCM Portal | Manipal Institute of Technology</title>
+    <title>SLCM Portal | University Student Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -72,7 +72,6 @@
             color: white;
             font-weight: 800;
             font-size: 1.25rem;
-            letter-spacing: -0.5px;
             box-shadow: 0 4px 10px rgba(217, 72, 15, 0.25);
         }
 
@@ -300,6 +299,8 @@
             margin-bottom: 1.25rem;
             padding-bottom: 0.85rem;
             border-bottom: 1px solid #f1f5f9;
+            flex-wrap: wrap;
+            gap: 0.75rem;
         }
 
         .card-title {
@@ -350,6 +351,29 @@
             font-size: 0.775rem;
         }
 
+        /* Search input above attendance */
+        .table-controls {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 0.55rem 0.85rem;
+            border: 1px solid var(--card-border);
+            border-radius: 8px;
+            font-size: 0.825rem;
+            color: var(--navy);
+            outline: none;
+            transition: border-color 0.15s;
+        }
+
+        .search-input:focus {
+            border-color: var(--primary);
+        }
+
         /* Attendance Table */
         .table-wrap {
             overflow-x: auto;
@@ -372,7 +396,7 @@
         }
 
         td {
-            padding: 1rem;
+            padding: 0.85rem 1rem;
             font-size: 0.875rem;
             border-bottom: 1px solid #f1f5f9;
             vertical-align: middle;
@@ -407,7 +431,7 @@
         .progress-green { background: var(--accent-green); }
         .progress-amber { background: var(--accent-amber); }
 
-        /* Announcement Notice Card with CSS Overflow Bug */
+        /* Announcement Notice Card */
         .notice-container {
             display: flex;
             flex-direction: column;
@@ -436,41 +460,15 @@
             margin-bottom: 0.4rem;
         }
 
-        /* Notice banner with realistic flexbox overflow issue */
-        .urgent-advisory {
-            background: #fff8f5;
-            border: 1px solid #fed7aa;
-            border-radius: 8px;
-            padding: 0.85rem;
-            margin-top: 0.75rem;
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            width: 100%;
-        }
-
-        .urgent-pill {
+        .notice-badge {
+            display: inline-block;
             background: #ffedd5;
             color: #9a3412;
             font-size: 0.7rem;
             font-weight: 700;
             padding: 0.2rem 0.5rem;
             border-radius: 4px;
-            white-space: nowrap;
-        }
-
-        /* BUG 1: Layout text overflow caused by flex child with white-space: nowrap and fixed min-width */
-        .advisory-ref-box {
-            display: flex;
-            white-space: nowrap;
-            width: 100%;
-        }
-
-        .advisory-ref-text {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.75rem;
-            color: #b45309;
-            white-space: nowrap;
+            margin-top: 0.5rem;
         }
 
         /* Fee Management Card */
@@ -689,23 +687,23 @@
     <!-- Top Navigation -->
     <header class="topbar">
         <div class="brand-container">
-            <div class="brand-badge">M</div>
+            <div class="brand-badge">S</div>
             <div class="brand-text">
-                <h1>MIT Manipal — SLCM 3.0</h1>
-                <p>Student Life Cycle Management System</p>
+                <h1>SLCM 3.0 — Student Life Cycle Portal</h1>
+                <p>Academic & Administration Management System</p>
             </div>
         </div>
 
         <div class="user-meta">
             <div class="session-tag">
                 <span class="dot"></span>
-                <span>Active Term: Fall 2026</span>
+                <span>Term: Fall 2026</span>
             </div>
             <div class="profile-pill" id="profile-pill">
                 <div class="avatar">NS</div>
                 <div>
                     <div class="profile-name">Neelesh Singh</div>
-                    <div class="profile-id">Reg: 230970022 • Sec A</div>
+                    <div class="profile-id">Student ID: CS-2024-8192</div>
                 </div>
             </div>
         </div>
@@ -720,11 +718,11 @@
             </a>
             <a href="#attendance-section" class="nav-link">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                Attendance & Marks
+                Attendance & Courses
             </a>
             <a href="#fee-section" class="nav-link">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-                Fee Payment
+                Fee Accounts
             </a>
             <a href="#grievance-section" class="nav-link">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 0A9 9 0 013 12a9 9 0 0115.364-6.364zm-3.536 3.536L12 12m0 0l-3.536 3.536M12 12l3.536 3.536M12 12l-3.536-3.536"/></svg>
@@ -732,7 +730,7 @@
             </a>
             <a href="#notices-section" class="nav-link">
                 <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/></svg>
-                Academic Notices
+                Campus Bulletins
             </a>
         </aside>
 
@@ -743,20 +741,20 @@
             <section class="hero-banner">
                 <div class="hero-title">
                     <h2>Welcome back, Neelesh!</h2>
-                    <p>B.Tech Computer Science & Engineering • Semester IV • Section A (Batch A1)</p>
+                    <p>B.Tech Computer Science & Engineering • Undergraduate Program</p>
                 </div>
                 <div class="hero-badges">
                     <div class="kpi-card">
                         <div class="kpi-label">Cumulative GPA</div>
-                        <div class="kpi-value">9.62</div>
+                        <div class="kpi-value">8.80</div>
                     </div>
                     <div class="kpi-card">
                         <div class="kpi-label">Overall Attendance</div>
-                        <div class="kpi-value" style="color: #34d399;">88.4%</div>
+                        <div class="kpi-value" style="color: #34d399;">86.5%</div>
                     </div>
                     <div class="kpi-card">
-                        <div class="kpi-label">Credits Earned</div>
-                        <div class="kpi-value">48 / 160</div>
+                        <div class="kpi-label">Registered Credits</div>
+                        <div class="kpi-value">44 / 160</div>
                     </div>
                 </div>
             </section>
@@ -772,16 +770,20 @@
                         <div class="card-header">
                             <div class="card-title">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/></svg>
-                                Course Attendance & Performance
+                                Course Attendance & Enrollment
                             </div>
-                            <!-- Action button to trigger subject breakdown -->
                             <button class="btn btn-outline btn-sm" id="btn-view-attendance" onclick="openAttendanceModal()">
                                 View Subject Details
                             </button>
                         </div>
+
+                        <!-- Course Search Filter (Contains Bug 1: Case-Sensitive Search Defect) -->
+                        <div class="table-controls">
+                            <input type="text" class="search-input" id="course-filter-input" placeholder="Search registered courses (e.g., 'Data', 'Networks')..." oninput="filterCourseTable()">
+                        </div>
                         
                         <div class="table-wrap">
-                            <table>
+                            <table id="courses-table">
                                 <thead>
                                     <tr>
                                         <th>Course Code</th>
@@ -791,59 +793,62 @@
                                         <th>Status</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
+                                <tbody id="courses-table-body">
+                                    <tr class="course-row" data-name="Data Structures & Algorithms">
                                         <td class="course-code">CS2101</td>
                                         <td class="course-name">Data Structures & Algorithms</td>
-                                        <td>36 / 39</td>
+                                        <td>35 / 38</td>
                                         <td>
-                                            <strong>92.3%</strong>
+                                            <strong>92.1%</strong>
                                             <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 92%;"></div></div>
                                         </td>
                                         <td><span style="color: var(--accent-green); font-weight:600; font-size:0.8rem;">Eligible</span></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="course-row" data-name="Discrete Mathematical Structures">
                                         <td class="course-code">CS2102</td>
                                         <td class="course-name">Discrete Mathematical Structures</td>
-                                        <td>29 / 33</td>
+                                        <td>28 / 33</td>
                                         <td>
-                                            <strong>87.8%</strong>
-                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 88%;"></div></div>
+                                            <strong>84.8%</strong>
+                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 85%;"></div></div>
                                         </td>
                                         <td><span style="color: var(--accent-green); font-weight:600; font-size:0.8rem;">Eligible</span></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="course-row" data-name="Computer Communication Networks">
                                         <td class="course-code">CS2103</td>
                                         <td class="course-name">Computer Communication Networks</td>
-                                        <td>27 / 32</td>
+                                        <td>26 / 32</td>
                                         <td>
-                                            <strong>84.3%</strong>
-                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 84%;"></div></div>
+                                            <strong>81.2%</strong>
+                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 81%;"></div></div>
                                         </td>
                                         <td><span style="color: var(--accent-green); font-weight:600; font-size:0.8rem;">Eligible</span></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="course-row" data-name="Design & Analysis of Algorithms">
                                         <td class="course-code">CS2104</td>
                                         <td class="course-name">Design & Analysis of Algorithms</td>
-                                        <td>32 / 36</td>
+                                        <td>31 / 35</td>
                                         <td>
-                                            <strong>88.8%</strong>
+                                            <strong>88.5%</strong>
                                             <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 89%;"></div></div>
                                         </td>
                                         <td><span style="color: var(--accent-green); font-weight:600; font-size:0.8rem;">Eligible</span></td>
                                     </tr>
-                                    <tr>
+                                    <tr class="course-row" data-name="Digital Systems & Microprocessors">
                                         <td class="course-code">CS2105</td>
-                                        <td class="course-name">Digital Systems & Computer Org.</td>
-                                        <td>30 / 35</td>
+                                        <td class="course-name">Digital Systems & Microprocessors</td>
+                                        <td>29 / 34</td>
                                         <td>
-                                            <strong>85.7%</strong>
-                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 86%;"></div></div>
+                                            <strong>85.2%</strong>
+                                            <div class="progress-bar-bg"><div class="progress-bar-fill progress-green" style="width: 85%;"></div></div>
                                         </td>
                                         <td><span style="color: var(--accent-green); font-weight:600; font-size:0.8rem;">Eligible</span></td>
                                     </tr>
                                 </tbody>
                             </table>
+                            <div id="no-courses-msg" style="display:none; padding:1.5rem; text-align:center; color:var(--text-muted); font-size:0.85rem;">
+                                No courses matched your filter query.
+                            </div>
                         </div>
                     </section>
 
@@ -852,7 +857,7 @@
                         <div class="card-header">
                             <div class="card-title">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-                                Semester Dues & Financial Ledger
+                                Semester Dues & Accounts
                             </div>
                             <button class="btn btn-outline btn-sm" onclick="openReceiptModal()">
                                 View Official Receipt
@@ -861,19 +866,19 @@
 
                         <div class="fee-card-content">
                             <div class="fee-row">
-                                <span class="text-muted">Semester IV Tuition Installment</span>
+                                <span class="text-muted">Semester Tuition Installment</span>
                                 <span>₹45,000.00</span>
                             </div>
                             <div class="fee-row">
-                                <span class="text-muted">Advanced Computing Lab Facility Charge</span>
+                                <span class="text-muted">Computing Laboratory Facility Charge</span>
                                 <span>₹2,500.00</span>
                             </div>
                             <div class="fee-row">
-                                <span class="text-muted">Merit Scholarship Waiver (Semester IV)</span>
+                                <span class="text-muted">Academic Scholarship Waiver</span>
                                 <span style="color: var(--accent-green);">-₹1,000.00</span>
                             </div>
                             <div class="fee-row">
-                                <span class="text-muted">Late Registration Penalty (Assessment)</span>
+                                <span class="text-muted">Late Registration Penalty</span>
                                 <span>₹1,500.00</span>
                             </div>
                             <div class="fee-row total">
@@ -881,12 +886,12 @@
                                 <span id="display-net-balance">₹48,000.00</span>
                             </div>
 
-                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem;">
+                            <div style="display: flex; gap: 1rem; margin-top: 0.5rem; flex-wrap: wrap;">
                                 <button class="btn btn-primary" onclick="openPaymentModal()" id="btn-pay-dues">
                                     Proceed to Online Payment
                                 </button>
                                 <span style="font-size: 0.8rem; color: var(--text-muted); align-self: center;">
-                                    Due Date: 10 Nov 2026 • Payment Gateway: HDFC SmartHub
+                                    Due Date: 15 Nov 2026 • Secure Payment Gateway
                                 </span>
                             </div>
                         </div>
@@ -897,12 +902,12 @@
                 <!-- Right Column (Notices & Helpdesk) -->
                 <div class="right-col">
                     
-                    <!-- Academic Notices & Circulars (Contains Bug 1 Layout Overflow) -->
+                    <!-- Academic Notices & Circulars (Clean, Professional, No Overflow) -->
                     <section class="card" id="notices-section">
                         <div class="card-header">
                             <div class="card-title">
                                 <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5.882V19.24a1.76 1.76 0 01-3.417.592l-2.147-6.15M18 13a3 3 0 100-6M5.436 13.683A4.001 4.001 0 017 6h1.832c4.1 0 7.625-1.234 9.168-3v14c-1.543-1.766-5.067-3-9.168-3H7a3.988 3.988 0 01-1.564-.317z"/></svg>
-                                Academic Notices
+                                Academic Bulletins
                             </div>
                         </div>
 
@@ -912,26 +917,19 @@
                                     <span>Dept. of Computer Science</span>
                                     <span>24 Oct 2026</span>
                                 </div>
-                                <div class="notice-title">End Semester Lab Examination Schedule Released</div>
-                                <p style="font-size: 0.8rem; color: #475569;">DiSL-A1 and DSL-A1 lab practical slots have been scheduled for early November.</p>
+                                <div class="notice-title">Practical Lab Assessment Timetable</div>
+                                <p style="font-size: 0.8rem; color: #475569; line-height: 1.4;">End-semester laboratory examinations are scheduled to commence in the first week of November.</p>
+                                <span class="notice-badge">CIRCULAR #CS-2026-11</span>
                             </div>
 
-                            <!-- Notice Item with realistic layout text overflow defect -->
-                            <div class="notice-item" style="border-left-color: #f59e0b;">
+                            <div class="notice-item" style="border-left-color: #3b82f6;">
                                 <div class="notice-meta">
-                                    <span>Office of Registrar</span>
-                                    <span>Today</span>
+                                    <span>Academic Advisory Cell</span>
+                                    <span>22 Oct 2026</span>
                                 </div>
-                                <div class="notice-title">Advisory on Semester IV Re-Registration Tracking</div>
-                                <p style="font-size: 0.8rem; color: #475569;">All branch candidates must verify course codes with their respective academic mentor.</p>
-                                
-                                <div class="urgent-advisory">
-                                    <span class="urgent-pill">DISPATCH REF</span>
-                                    <div class="advisory-ref-box">
-                                        <!-- BUG 1: Long uninterrupted string with white-space: nowrap in unconstrained flex container causes overflow -->
-                                        <span class="advisory-ref-text">REF#MIT-EXAM-ACADEMIC-CIRCULAR-2026-SLCM-ADV-CSE-BATCH-SEC-A-0928174019284102941-VERIFIED</span>
-                                    </div>
-                                </div>
+                                <div class="notice-title">Elective Registration & Verification</div>
+                                <p style="font-size: 0.8rem; color: #475569; line-height: 1.4;">Undergraduate scholars must review their registered track credits prior to final grade consolidation.</p>
+                                <span class="notice-badge" style="background:#dbeafe; color:#1e40af;">NOTICE #REG-449</span>
                             </div>
                         </div>
                     </section>
@@ -950,15 +948,16 @@
                                 <label class="form-label" for="ticket-category">Inquiry Category</label>
                                 <select class="form-control" id="ticket-category">
                                     <option value="attendance">Attendance Discrepancy</option>
-                                    <option value="fee">Fee Payment Verification</option>
+                                    <option value="fee">Fee Payment Clarification</option>
                                     <option value="elective">Open Elective Selection</option>
-                                    <option value="general">Hostel / Campus Facilities</option>
+                                    <option value="general">Campus Infrastructure</option>
                                 </select>
                             </div>
 
                             <div class="form-group">
-                                <label class="form-label" for="student-email">Official Learner Email</label>
-                                <input type="text" class="form-control" id="student-email" value="neelesh.mitmpl2025@learner.manipal.edu" placeholder="username@learner.manipal.edu">
+                                <label class="form-label" for="student-email">Campus Learner Email</label>
+                                <!-- Pre-filled with generic student email containing a dot in username -->
+                                <input type="text" class="form-control" id="student-email" value="neelesh.singh@campus.edu" placeholder="student.name@campus.edu">
                             </div>
 
                             <div class="form-group">
@@ -982,7 +981,7 @@
         </main>
     </div>
 
-    <!-- MODAL 1: Subject Attendance Detailed Breakdown (Contains Bug 4 TypeError / Infinite Spinner) -->
+    <!-- MODAL 1: Subject Attendance Detailed Breakdown (Bug 4 TypeError) -->
     <div class="modal-overlay" id="attendance-modal">
         <div class="modal-box">
             <div class="modal-header">
@@ -992,7 +991,7 @@
             <div class="modal-content" id="attendance-modal-content">
                 <div class="spinner" id="attendance-spinner"></div>
                 <p id="attendance-modal-status" style="text-align: center; font-size: 0.85rem; color: var(--text-muted);">
-                    Synchronizing academic ledger with SLCM cloud servers...
+                    Synchronizing academic ledger with portal database...
                 </p>
                 <div id="attendance-modal-details" style="display: none; margin-top: 1rem;">
                     <!-- Will be populated dynamically by JS -->
@@ -1004,7 +1003,7 @@
         </div>
     </div>
 
-    <!-- MODAL 2: Fee Payment Checkout (Contains Bug 3 Math Type Coercion Bug) -->
+    <!-- MODAL 2: Fee Payment Checkout (Bug 3 Math Type Coercion Bug) -->
     <div class="modal-overlay" id="payment-modal">
         <div class="modal-box">
             <div class="modal-header">
@@ -1053,7 +1052,7 @@
         </div>
     </div>
 
-    <!-- MODAL 3: Fee Receipt Slip Preview (Contains Bug 2 Institution Name Mismatch) -->
+    <!-- MODAL 3: Fee Receipt Slip Preview (Bug 2 Institution Name Mismatch) -->
     <div class="modal-overlay" id="receipt-modal">
         <div class="modal-box" style="max-width: 600px;">
             <div class="modal-header">
@@ -1074,12 +1073,12 @@
                             <strong>Neelesh Singh</strong>
                         </div>
                         <div>
-                            <span class="text-muted" style="display:block; font-size:0.75rem;">Roll Number:</span>
-                            <span style="font-family:'JetBrains Mono';">230970022 (A022)</span>
+                            <span class="text-muted" style="display:block; font-size:0.75rem;">Student ID:</span>
+                            <span style="font-family:'JetBrains Mono';">CS-2024-8192</span>
                         </div>
                         <div>
-                            <span class="text-muted" style="display:block; font-size:0.75rem;">Branch / Section:</span>
-                            <span>B.Tech CSE - Sec A</span>
+                            <span class="text-muted" style="display:block; font-size:0.75rem;">Program:</span>
+                            <span>B.Tech CSE</span>
                         </div>
                         <div>
                             <span class="text-muted" style="display:block; font-size:0.75rem;">Transaction Ref:</span>
@@ -1111,29 +1110,51 @@
     <!-- Application Footer -->
     <footer>
         <div>
-            &copy; 2026 Manipal Institute of Technology • Directorate of Student Life Cycle Management
+            &copy; 2026 Academic Life Cycle Management • Directorate of Student Affairs
         </div>
         <div>
-            Powered by SLCM Cloud Engine v3.4.1 • <a href="mailto:support.slcm@manipal.edu" style="color: var(--primary); text-decoration: none;">support.slcm@manipal.edu</a>
+            Powered by SLCM Cloud Engine v3.4.1 • <a href="mailto:support@campus.edu" style="color: var(--primary); text-decoration: none;">support@campus.edu</a>
         </div>
     </footer>
 
     <!-- Logic Script -->
     <script>
-        // Mock data structure
         const studentRecord = {
             name: "Neelesh Singh",
-            regNo: "230970022",
+            id: "CS-2024-8192",
             program: "B.Tech CSE",
             semester: 4,
-            section: "A",
-            // Notice: Key is 'classes' instead of 'history'
             courses: [
-                { code: "CS2101", name: "Data Structures", attendance: { attended: 36, total: 39, classes: ["2026-09-01", "2026-09-03"] } },
-                { code: "CS2102", name: "Discrete Maths", attendance: { attended: 29, total: 33, classes: ["2026-09-02", "2026-09-04"] } },
-                { code: "CS2103", name: "Networks", attendance: { attended: 27, total: 32, classes: ["2026-09-01", "2026-09-05"] } }
+                { code: "CS2101", name: "Data Structures", attendance: { attended: 35, total: 38, classes: ["2026-09-01", "2026-09-03"] } },
+                { code: "CS2102", name: "Discrete Maths", attendance: { attended: 28, total: 33, classes: ["2026-09-02", "2026-09-04"] } },
+                { code: "CS2103", name: "Networks", attendance: { attended: 26, total: 32, classes: ["2026-09-01", "2026-09-05"] } }
             ]
         };
+
+        /* ----------------------------------------------------
+           BUG 1: Case-Sensitive Search Defect
+           filterCourseTable() compares directly without .toLowerCase(),
+           so searching 'data' fails to match 'Data Structures & Algorithms'.
+        ---------------------------------------------------- */
+        function filterCourseTable() {
+            const query = document.getElementById('course-filter-input').value;
+            const rows = document.querySelectorAll('.course-row');
+            let matchCount = 0;
+
+            rows.forEach(row => {
+                const courseName = row.getAttribute('data-name');
+                // Defect: Case-sensitive search. query is not converted to lowercase, nor is courseName
+                if (courseName.includes(query)) {
+                    row.style.display = "";
+                    matchCount++;
+                } else {
+                    row.style.display = "none";
+                }
+            });
+
+            const noMsg = document.getElementById('no-courses-msg');
+            noMsg.style.display = matchCount === 0 ? "block" : "none";
+        }
 
         function closeModal(id) {
             document.getElementById(id).classList.remove('open');
@@ -1149,14 +1170,12 @@
 
         /* ----------------------------------------------------
            BUG 3: Mathematical / Type Coercion Error
-           Adding string from input value causes string concatenation!
-           e.g. 45000 + 2500 = 47500 -> "47500" + "1500" - 1000 = 475000500
+           Adding string from input value causes string concatenation
         ---------------------------------------------------- */
         function calculateAndPay() {
             const tuition = 45000;
             const labFee = 2500;
             const scholarship = 1000;
-            // Unparsed string read directly from DOM value
             const latePenalty = document.getElementById('late-fee-penalty').value;
 
             // Type coercion bug: tuition + labFee + latePenalty produces string "475001500", then minus scholarship
@@ -1172,8 +1191,7 @@
         }
 
         /* ----------------------------------------------------
-           BUG 4: Unhandled TypeError causing infinite loading spinner
-           Attempts to read 'history' which is undefined on attendance object.
+           BUG 4: Unhandled TypeError causing UI freeze
         ---------------------------------------------------- */
         function openAttendanceModal() {
             const modal = document.getElementById('attendance-modal');
@@ -1183,24 +1201,21 @@
 
             modal.classList.add('open');
             spinner.style.display = "block";
-            statusText.innerText = "Synchronizing academic ledger with SLCM cloud servers...";
+            statusText.innerText = "Synchronizing academic ledger with portal database...";
             detailsBox.style.display = "none";
 
             setTimeout(() => {
                 try {
                     // BUG 4 Trigger: studentRecord.courses[0].attendance.history is undefined
-                    // This causes an uncaught TypeError: Cannot read properties of undefined (reading 'map')
                     const historyRows = studentRecord.courses.map(c => {
                         return c.attendance.history.map(h => `<li>${c.code}: ${h}</li>`).join('');
                     });
 
-                    // This code is never reached due to the runtime error above
                     spinner.style.display = "none";
                     statusText.innerText = "Records loaded successfully.";
                     detailsBox.innerHTML = `<ul>${historyRows.join('')}</ul>`;
                     detailsBox.style.display = "block";
                 } catch (err) {
-                    // Developer forgot to hide the spinner in error handler, leaving UI permanently frozen
                     console.error("Attendance synchronization failed:", err);
                     statusText.innerText = "Runtime Exception: Failed to parse attendance logs. See console logs.";
                     statusText.style.color = "var(--accent-red)";
@@ -1209,9 +1224,7 @@
         }
 
         /* ----------------------------------------------------
-           BUG 5: Over-restrictive Form Regex rejects university emails
-           Regex only accepts simple letters@domain.com, failing for:
-           'neelesh.mitmpl2025@learner.manipal.edu'
+           BUG 5: Over-restrictive Form Regex rejects emails with dots
         ---------------------------------------------------- */
         function handleGrievanceSubmit(event) {
             event.preventDefault();
@@ -1223,12 +1236,12 @@
             errorBox.style.display = "none";
             successBox.style.display = "none";
 
-            // BUG 5: Flawed regex rejects dots in local part and multi-part educational TLDs (.edu, .manipal.edu)
+            // BUG 5: Flawed regex rejects dots in username (e.g., neelesh.singh@campus.edu)
             const strictOldRegex = /^[a-zA-Z]+@[a-zA-Z]+\.[a-z]{2,4}$/;
 
             if (!strictOldRegex.test(emailInput)) {
                 errorBox.style.display = "block";
-                errorBox.innerHTML = "<strong>Validation Error:</strong> '" + emailInput + "' is rejected. Only standard single-domain alphanumeric emails (e.g. name@mail.com) are recognized by the legacy identity service.";
+                errorBox.innerHTML = "<strong>Validation Error:</strong> '" + emailInput + "' is rejected. Only standard alphanumeric emails without punctuation (e.g. name@mail.com) are recognized by the legacy identity service.";
                 return;
             }
 
@@ -1239,7 +1252,7 @@
             }
 
             successBox.style.display = "block";
-            successBox.innerHTML = "<strong>Success:</strong> Ticket #SLCM-2026-981 submitted to Dean's Office.";
+            successBox.innerHTML = "<strong>Success:</strong> Ticket submitted successfully.";
         }
     </script>
 </body>
